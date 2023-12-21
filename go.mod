@@ -3,7 +3,7 @@ module github.com/appuio/appuio-cloud-reporting
 go 1.19
 
 require (
-	github.com/go-logr/logr v1.2.3
+	github.com/go-logr/logr v1.4.1
 	github.com/go-logr/zapr v1.2.3
 	github.com/google/go-jsonnet v0.19.1
 	github.com/google/uuid v1.3.0
@@ -16,6 +16,7 @@ require (
 	github.com/prometheus/common v0.40.0
 	github.com/stretchr/testify v1.8.2
 	github.com/urfave/cli/v2 v2.24.4
+	go.uber.org/multierr v1.6.0
 	go.uber.org/zap v1.24.0
 )
 
@@ -36,7 +37,6 @@ require (
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
-	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
