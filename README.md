@@ -19,7 +19,7 @@ oc login --server=https://api.cloudscale-lpg-2.appuio.cloud:6443
 
 # Forward database and thanos to local host
 kubectl -n appuio-reporting port-forward svc/reporting-db 5432 &
-kubectl --as=cluster-admin -n appuio-thanos port-forward svc/thanos-query 9090 &
+kubectl --as=system:admin -n appuio-thanos port-forward svc/thanos-query 9090 &
 
 # Check for pending migrations
 DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.user}' | base64 --decode)
@@ -65,7 +65,7 @@ oc -n appuio-reporting create secret generic grafana-creds --from-literal=admin-
 
 ```sh
 kubectl -n appuio-reporting port-forward svc/reporting-db 5432 &
-kubectl --as=cluster-admin -n appuio-thanos port-forward svc/thanos-query 9090 &
+kubectl --as=system:admin -n appuio-thanos port-forward svc/thanos-query 9090 &
 
 DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.user}' | base64 --decode)
 DB_PASSWORD=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.password}' | base64 --decode)
